@@ -130,6 +130,7 @@ This information is here for me to learn networking fundamentals and as a source
 - Gateway:
 - Routers act as the default gateway for devices on the network.
 - Example: A host on Network 1 uses the router’s IP address (e.g., 172.16.20.1) as its gateway to communicate with other networks.
+- A gateway is a host's way out of their local network. 
 #
 - **Routers and Hierarchies:**
 - Routers create hierarchies in networks and IP addresses.
