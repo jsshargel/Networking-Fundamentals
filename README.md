@@ -153,12 +153,87 @@ This information is here for me to learn networking fundamentals and as a source
 - Examples: access points, firewalls, load balancers, layer 3 switches, proxies, virtual routers, and virtual switches (in the cloud).
 - When discussing routers and switches, the functions of routing and switching are what matters, regardless of the device performing them.
 # OSI Model: A Practical Perspective - Lesson 2a
-
-
-
-
-
-
+- **The OSI Model Overview**
+- Networking goal: Allow two hosts to share data automatically (no manual intervention).
+- Before networking, data transfer required physical interaction (e.g., plugging/unplugging a device).
+- Networking automates data sharing between hosts.
+- Data sharing between hosts follows a set of rules similar to languages having grammatical rules (English, Spanish, etc.).
+- The rules of networking are divided into seven layers called the OSI model.
+- Analogy to the Human Body:
+- Just like the body has multiple systems (e.g., skeletal, nervous, cardiovascular), networking uses multiple layers.
+- If each layer of the OSI model operates as intended, the goal of networking is achieved.
+- The goal of networking is for hosts to share data seamlessly.
+- The lesson’s goal is not just to memorize the OSI model.
+- The focus is on understanding the purpose of each layer and how they contribute to the overall goal of data sharing between two hosts.
+#
+- **Layer 1: Physical Layer**
+- Data format: Data on computers exists as bits (1s and 0s).
+- The Physical Layer ensures the transport of these bits between computers.
+- The physical layer encompasses any technology that moves bits from one host to another.
+- Layer 1 Technologies:
+- Cables (e.g., Ethernet, fiber optics) fall under Layer 1 technologies.
+- The physical layer also includes Wi-Fi, which carries ones and zeros wirelessly.
+- Repeaters (devices that amplify signals) are Layer 1 devices.
+- Function of a repeater: Extend a wire by regenerating signals.
+- Hubs (multi-port repeaters) are also Layer 1 devices.
+#
+- **Layer 2: Data Link Layer**
+- Interaction with Layer 1: Layer 2 works with the physical layer, putting bits on the wire and retrieving them.
+- Example of a Layer 2 device: Network Interface Card (NIC).
+- NICs in PCs are responsible for sending/receiving bits.
+- Wi-Fi access cards also operate at Layer 2.
+- Function of Layer 2:
+- The primary goal is hop-to-hop delivery, ensuring bits travel from one NIC to another (called a hop).
+- Layer 2 Addressing Scheme:
+- MAC Addresses (Media Access Control addresses) are used for Layer 2 communication.
+- MAC addresses are 48 bits long, represented as 12 hex digits.
+- Different systems format MAC addresses differently (e.g., Windows uses dashes, Linux uses colons, Cisco uses dots).
+- Example MAC Address: A1A1 (simplified for display purposes).
+- Every NIC has a unique MAC address.
+- Role of Switches in Layer 2:
+- Switches are Layer 2 devices that facilitate communication within a network.
+- Switches help data traverse between NICs within the network.
+- They allow multiple devices to connect and communicate, directing traffic internally.
+- Multiple Hops in Layer 2:
+- Multiple hops (moving through multiple routers) are often needed to reach distant hosts.
+- Each router has a NIC with its own unique MAC address.
+- Layer 2 handles delivery from one MAC address to the next, facilitating hop-to-hop delivery.
+#
+- **Layer 3: Network Layer**
+- Goal: Ensure end-to-end delivery of data.
+- Layer 3 uses IP addresses (Internet Protocol addresses) for communication.
+- IP addresses are 32 bits long, represented as four octets (e.g., 192.168.1.1).
+- Each host is uniquely identified by its IP address.
+- Role of Routers in Layer 3:
+- Routers operate at Layer 3, helping to route data across different networks.
+- Hosts and anything with an IP address also operate at Layer 3.
+- MAC Addresses vs. IP Addresses:
+- A common question: If Layer 3 has IP addresses, why are MAC addresses needed at Layer 2?
+- Answer: Each address type serves a different purpose:
+- MAC addresses handle hop-to-hop delivery within the same network.
+- IP addresses handle end-to-end delivery across networks.
+- How Data Travels Across the Network (End-to-End):
+- When a host sends data, it adds Layer 3 (IP) information, including the source IP and destination IP.
+- This ensures data can reach the correct endpoint.
+- The host then adds Layer 2 (MAC) information to send data to the first router.
+- Routers strip and replace Layer 2 information at each hop but retain the Layer 3 (IP) information.
+- Each router adds new MAC information for the next hop.
+- The process repeats until the data reaches the final destination.
+#
+- **Layer 2 and Layer 3 Working Together**
+- Layer 2 handles hop-to-hop movement (from NIC to NIC).
+- Layer 3 ensures the data moves end-to-end across networks (from source IP to destination IP).
+#
+- **Address Resolution Protocol (ARP)**
+- ARP ties Layer 3 (IP addresses) to Layer 2 (MAC addresses).
+- ARP is critical for understanding how data flows through a network.
+- A deeper dive into ARP is available in an article series at pracnet.net/arp.
+#
+- **Conclusion**
+- Layer 1: Physical Layer (cables, repeaters, Wi-Fi, hubs).
+- Layer 2: Data Link Layer (MAC addresses, NICs, switches, hop-to-hop delivery).
+- Layer 3: Network Layer (IP addresses, routers, end-to-end delivery).
+# OSI Model: A Practical Perspective - Lesson 2a
 
 
 
