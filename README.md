@@ -1,6 +1,6 @@
 # Networking-Fundamentals
 This information is here for me to learn networking fundamentals and as a source to come back to when needed. This information is from the Networking Fundamentals playlist under the Practical Networking YouTube channel. You can find the videos at https://www.youtube.com/watch?v=bj-Yfakjllc&list=PLIFyRwBY_4bRLmKfP1KnZA6rZbRHtxmXi.
-# Hosts, IP Addresses, Networks - Lesson 1a
+# Network Devices - Hosts, IP Addresses, Networks - Part 1
 - **Hosts**
 - Hosts are any device that sends or receives traffic such as computers, laptops, phones, etc.
 - Many cloud resources, such as cloud servers, can also be considered hosts.
@@ -44,7 +44,7 @@ This information is here for me to learn networking fundamentals and as a source
 - These sub-networks are referred to as subnets.
 - Networks connect to each other through a central resource like the internet.
 - The Internet is a collection of interconnected networks.
-# Hub, Bridge, Switch, Router - Network Devices - Lesson 1b
+# Network Devices - Hub, Bridge, Switch, Router - Part 2
 - **Intro**
 - This is the second part of the lesson on network devices.
 - First lesson from the first module of the networking fundamentals course.
@@ -152,7 +152,7 @@ This information is here for me to learn networking fundamentals and as a source
 - Other network devices perform routing or switching or both:
 - Examples: access points, firewalls, load balancers, layer 3 switches, proxies, virtual routers, and virtual switches (in the cloud).
 - When discussing routers and switches, the functions of routing and switching are what matters, regardless of the device performing them.
-# OSI Model: A Practical Perspective - Lesson 2a
+# OSI Model: A Practical Perspective - Part 1
 - **The OSI Model Overview**
 - Networking goal: Allow two hosts to share data automatically (no manual intervention).
 - Before networking, data transfer required physical interaction (e.g., plugging/unplugging a device).
@@ -233,7 +233,8 @@ This information is here for me to learn networking fundamentals and as a source
 - Layer 1: Physical Layer (cables, repeaters, Wi-Fi, hubs).
 - Layer 2: Data Link Layer (MAC addresses, NICs, switches, hop-to-hop delivery).
 - Layer 3: Network Layer (IP addresses, routers, end-to-end delivery).
-# OSI Model: A Practical Perspective - Lesson 2a
+# OSI Model: A Practical Perspective - Part 2
+- 
 
 
 
