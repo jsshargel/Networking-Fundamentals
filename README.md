@@ -234,13 +234,81 @@ This information is here for me to learn networking fundamentals and as a source
 - Layer 2: Data Link Layer (MAC addresses, NICs, switches, hop-to-hop delivery).
 - Layer 3: Network Layer (IP addresses, routers, end-to-end delivery).
 # OSI Model: A Practical Perspective - Part 2
+- **Layer 4: Transport Layer**
+- Purpose of Layer 4: Ensure service-to-service delivery.
+- Example Scenario:
+- A computer (client) has both an IP address and MAC address.
+- User might have multiple programs open (e.g., a web browser, chat program, online game) that send and receive data.
+- Layer 3 handles end-to-end delivery (IP header), and Layer 2 handles hop-to-hop delivery (MAC header).
+- Question: How does each program receive the correct data? Answer: Layer 4.
+- Layer 4’s Role:
+- Distinguishes data streams and ensures each program gets the correct data.
+- Layer 4 uses an addressing scheme based on ports:
+- TCP (Transmission Control Protocol): Port range 0 to 65,000 (favors reliability).
+- UDP (User Datagram Protocol): Port range 0 to 65,000 (favors efficiency).
+- TCP and UDP provide different strategies for managing data streams.
+- When data arrives, it includes a Layer 4 header that specifies which program should receive the data.
+#
+- **Client and Servers**
+- Example of a client and three servers.
+- Each server is running a specific application:
+- bank.com: Listening for secure web requests via HTTPS (TCP port 443).
+- site.com: Responding to general web requests via HTTP (TCP port 80).
+- chat server (IRC): Running on UDP port 6667 for chat services.
+- **How Port Assignment Work**
+- The client makes requests to these servers using IP addresses and specific ports.
+- Each program on the server is associated with a well-known port number.
+- The client also assigns a random source port for each connection to track responses.
+- Example: Client makes a request to site.com, using source port 9999 and destination port 80.
+- The response from the server will use 9999 as the destination port, ensuring the correct program receives the response.
+- **Port Management for Multiple Programs**
+- The client’s use of random source ports ensures that responses for each service (browser, chat program, etc.) are delivered to the correct program.
+- This mechanism also allows the client to have multiple tabs open to the same website, with each tab using a different source port to keep the data streams separate.
+#
+- **Layers 5, 6, and 7 (Application Layers)**
+- Historically, each layer had a distinct function, but today the boundaries between these layers are vague.
+- Most applications combine the functions of layers 5, 6, and 7 into a single application layer.
+- The TCP/IP model simplifies this by combining layers 5, 6, and 7 into one layer.
+- **Why Focus on Layers 1-4**
+- The course focuses on layers 1-4, as they are the most critical for understanding how data flows through the internet.
+- If you’re curious about layers 5, 6, and 7, the instructor can cover them in another video.
+- For now, the TCP model’s approach is followed, treating them as a single application layer.
+#
+- **Encapsulation**
+- Encapsulation: The process of adding headers to data as it moves down the OSI stack.
+- **How Encapsulation Works**
+- The host generates data that needs to be sent.
+- Layer 4 (Transport Layer) adds a TCP header (includes source and destination ports) to the data. The result is called a segment.
+- The segment is passed to Layer 3 (Network Layer), which adds an IP header (includes source and destination IP addresses), creating a packet.
+- The Layer 2 (Data Link Layer) adds a MAC header (includes source and destination MAC addresses), forming a frame.
+- The frame is then converted into ones and zeros and sent over the wire.
+- **De-Encapsulation Process**
+- On the receiving end, the process is reversed:
+- The ones and zeros are reassembled into a frame.
+- Layer 2 checks if the frame’s MAC address matches its NIC. If so, it removes the Layer 2 header and sends the data up to Layer 3.
+- Layer 3 checks the IP address and passes the data to Layer 4 if the IP matches.
+- Layer 4 delivers the data to the correct application based on the port number.
+#
+- **The OSI Model and Device Operation**
+- Devices like switches and routers operate at specific layers:
+- Switches: Layer 2 (They only look at the Layer 2 header when making decisions).
+- Routers: Layer 3 (They examine the Layer 3 header).
+- **Protocols also operate at specific layers**
+- IP: Layer 3 protocol.
+- TCP/UDP: Layer 4 protocols.
+- **Exceptions in Networking Devices and Protocols**
+- Some devices can interact with multiple layers:
+- Example: A router typically operates at Layer 3, but if an access list is configured, it may inspect the Layer 4 header to make filtering decisions.
+- ARP Protocol: Links Layer 2 and Layer 3 by connecting MAC addresses to IP addresses (doesn’t fit neatly into either layer).
+#
+- **Conclusion**
+- The OSI model is a conceptual model to understand data flow, but it’s not a rigid set of rules.
+- **Main Takeaways**
+- Each OSI layer has a specific function that contributes to the overall goal of allowing two hosts to share data.
+- Each layer uses its own addressing scheme (MAC for Layer 2, IP for Layer 3, Ports for Layer 4).
+- Devices and protocols operate at specific layers but exceptions do exist.
+# Everything Hosts do to speak on the Internet - Lesson 3 - Part 1
 - 
-
-
-
-
-
-
 
 
 
