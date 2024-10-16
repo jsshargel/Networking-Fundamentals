@@ -308,7 +308,84 @@ This information is here for me to learn networking fundamentals and as a source
 - Each layer uses its own addressing scheme (MAC for Layer 2, IP for Layer 3, Ports for Layer 4).
 - Devices and protocols operate at specific layers but exceptions do exist.
 # Everything Hosts do to speak on the Internet - Lesson 3 - Part 1
-- 
+- This lesson focuses on the internet from the host’s perspective.
+- The lesson will cover how hosts communicate over the internet.
+- This lesson focuses on how hosts communicate across two scenarios:
+- Scenario 1: Two hosts directly connected.
+- Scenario 2: Two hosts communicating across a router.
+#
+- **Scenario 1: Two Hosts on the Same Network**
+- **Direct Connection:**
+- Hosts do not know they are directly connected.
+- Even if connected through a switch, hosts follow the same steps.
+- **Network Interface Card (NIC):**
+- Both hosts have a NIC, giving them a MAC address.
+- IP addresses and subnet masks are also assigned.
+- **Subnet Mask:**
+- The subnet mask defines the size of the network.
+- (No detailed discussion on subnetting, but links to additional resources provided.)
+- **Host A Sending Data to Host B**
+- **Data Sending:**
+- Host A has some data to send to Host B.
+- From a network perspective, the data is just ones and zeros.
+- **IP Address Knowledge:**
+- Host A knows the IP address of Host B (through DNS or manual entry like ping).
+- Host A knows the destination IP is on the same network by comparing it to its subnet mask.
+- **Layer 3 (IP Header):**
+- Host A creates a Layer 3 header for end-to-end delivery.
+- Includes:
+- Source IP (Host A).
+- Destination IP (Host B).
+#
+- **Layer 2 (MAC Address Resolution)**
+- Problem: Host A does not know Host B’s MAC address.
+- ARP Protocol:
+- Address Resolution Protocol (ARP) is used to resolve the MAC address.
+- ARP links a Layer 3 (IP) address to a Layer 2 (MAC) address.
+- **ARP Request**
+- Host A sends an ARP request:
+- Asks for the MAC address associated with Host B’s IP.
+- Includes Host A’s MAC and IP address.
+- Layer 2 Broadcast:
+- ARP request is sent as a broadcast to all devices on the network.
+- Broadcast uses a destination MAC address of FF:FF:FF:FF:FF
+- (reserved MAC address for broadcasts).
+- **ARP Response**
+- Host B's ARP Cache:
+- Host B receives the ARP request and stores Host A’s IP-MAC mapping in its ARP cache.
+- Unicast Response:
+- Host B sends an ARP response directly to Host A.
+- Includes Host B’s IP and MAC address.
+- Host A’s ARP Cache:
+- Host A now stores Host B’s MAC address in its ARP cache.
+#
+- **Data Transmission After ARP Resolution**
+- **Layer 2 Header Creation:**
+- Now that Host A knows Host B’s MAC address, it completes the Layer 2 header.
+- Includes:
+- Source MAC (Host A’s MAC address).
+- Destination MAC (Host B’s MAC address).
+- **Data Sent:**
+- Data is sent from Host A to Host B via Layer 2 and Layer 3 headers.
+- Layer 2 ensures hop-to-hop delivery.
+#
+- **Host B Receives the Data**
+- **Layer 2 Header Discarded:**
+- Host B receives the data and discards the Layer 2 header (it’s served its purpose).
+- **Layer 3 Header Discarded:**
+- Host B also discards the Layer 3 header once the data arrives, since the data has reached its destination.
+- **Application Layer:**
+- The application on Host B can now process the received data.
+#
+- **Conclusion of Host A to Host B Communication**
+- **Reply from Host B:**
+- Host B will likely need to send a response back to Host A.
+- The response is faster now because:
+- Host B has Host A’s IP and MAC in its ARP cache.
+- It can create Layer 3 and Layer 2 headers quickly.
+- **Further Communication:**
+- Any further data exchanges between Host A and Host B will happen easily as both have the necessary MAC and IP information stored in their respective ARP caches.
+# Everything Hosts do to speak on the Internet - Lesson 3 - Part 2 
 
 
 
