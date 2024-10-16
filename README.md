@@ -386,9 +386,86 @@ This information is here for me to learn networking fundamentals and as a source
 - **Further Communication:**
 - Any further data exchanges between Host A and Host B will happen easily as both have the necessary MAC and IP information stored in their respective ARP caches.
 # Everything Hosts do to speak on the Internet - Lesson 3 - Part 2 
-
-
-
+- In part 2 of this lesson, we will add a router and explore how hosts communicate with another host on a foreign network.
+#
+- Scenario 2: Host A Communicating with Host C Through a Router
+- Topology Overview:
+- Host A wants to send data to Host C, and there's a router between them.
+- Both hosts and the router have MAC addresses and IP addresses.
+- The /24 notation is used to represent the subnet mask for each device.
+- Subnet Mask:
+- The subnet mask defines the size of a network.
+- (Reminder: subnetting isn’t covered in this module; additional resources are available for learning subnetting.)
+#
+- Host A Preparing to Send Data to Host C
+- ARP Cache:
+- Host A, the router, and Host C all have IP addresses and thus have ARP caches.
+- In this lesson, we focus on Host A’s ARP cache.
+- Knowing Host C’s IP Address:
+- Host A already knows Host C’s IP address (provided by the user or an application).
+- Host A can determine that Host C is on a foreign network by comparing IP addresses and subnet masks.
+- Creating a Layer 3 Header:
+- Host A creates a Layer 3 header (IP header) to identify the communication endpoints.
+- The source IP is Host A, and the destination IP is Host C.
+#
+- Host A Creating a Layer 2 Header
+- Layer 2 Header Function:
+- Layer 2 handles hop-to-hop delivery.
+- Since Host C is on a foreign network, Host A needs to send the data to the router first.
+- ARP Resolution for the Router:
+- Host A’s ARP cache is empty, so it doesn’t know the router’s MAC address.
+- Host A must use ARP to resolve the router's MAC address.
+- Default Gateway Configuration:
+- Host A knows the router’s IP address because it is configured as the default gateway.
+- In a typical network setup, you configure:
+- IP address
+- Subnet mask
+- Default gateway (the router’s IP)
+- IP Configuration Example:
+- Host A’s IP: Matches its configuration.
+- Subnet mask: /24.
+- Default gateway: The router’s IP address.
+#
+- Using ARP to Resolve the Router’s MAC Address
+- Sending an ARP Request:
+- Host A sends an ARP request asking for the MAC address associated with the router’s IP.
+- The ARP request also includes Host A’s MAC address.
+- Router’s ARP Response:
+- The router sends an ARP response back to Host A, mapping its IP address to its MAC address (e.g., 10.1.1.1 → E5).
+- Populating Host A’s ARP Cache:
+- Host A populates its ARP cache with the router’s MAC address, allowing it to send data to the router.
+#
+- Sending Data to the Router
+- Creating the Layer 2 Header:
+- Host A completes the Layer 2 header with:
+- Source MAC: Host A’s MAC address.
+- Destination MAC: The router’s MAC address.
+- The Layer 2 header will handle hop-to-hop delivery to the router.
+- Sending the Data:
+- Host A sends the data to the router.
+- Router’s Role:
+- Upon receiving the data, the router discards the Layer 2 header (its job is done).
+- The router will then add any necessary Layer 2 headers to continue forwarding the packet through additional hops.
+#
+- ARP Reuse for Foreign Networks
+- Reusing the ARP Entry:
+- The ARP entry Host A used to send data to the router can be reused for communication with any host on a foreign network.
+- Layer 2 Header Consistency:
+- The Layer 2 header remains the same for all communication with foreign networks since the first hop is always the router.
+- Example with Additional Hosts:
+- Host A can now communicate with Host D by simply creating a new Layer 3 header with the destination IP of Host D.
+- The Layer 2 header (MAC addresses) stays the same because the first hop is still the router.
+#
+- ARP's Role in Network Communication
+- ARP’s Crucial Role:
+- ARP is crucial for data transmission because it allows hosts to resolve MAC addresses based on IP addresses.
+- The first step for any host when sending data is to determine if the target IP is on:
+- The local network (resolve the target’s MAC directly).
+- A foreign network (resolve the default gateway’s MAC).
+- ARP Process Summary:
+- If the target is on the local network, ARP resolves the target’s MAC.
+- If the target is on a foreign network, ARP resolves the default gateway’s MAC.
+#
 
 
 
