@@ -1,5 +1,5 @@
 # Networking-Fundamentals
-This information is here for me to learn networking fundamentals and as a source to come back to when needed. This information is from the Networking Fundamentals playlist under the Practical Networking YouTube channel. You can find the videos at https://www.youtube.com/watch?v=bj-Yfakjllc&list=PLIFyRwBY_4bRLmKfP1KnZA6rZbRHtxmXi.
+This information is here for me to learn networking fundamentals and as a source to come back to when needed. This information is from the Networking Fundamentals playlist under the Practical Networking YouTube channel. You can find the videos at https://www.youtube.com/watch?v=bj-Yfakjllc&list=PLIFyRwBY_4bRLmKfP1KnZA6rZbRHtxmXi. I also used an LLM to help streamline this process. 
 # Network Devices - Hosts, IP Addresses, Networks - Part 1
 - **Hosts**
 - Hosts are any device that sends or receives traffic such as computers, laptops, phones, etc.
